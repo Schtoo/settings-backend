@@ -24,13 +24,11 @@ app.get('/', function(req, res){
 //     let CheckedBill = req.body.WhichType(checkedBill);
 //     res.render('main');
 // });
-
 app.post('/settings', function(req, res){
   let {callCost, smsCost, warningValue, criticalValue} = req.body;
     // settingsInstance.UpdateValues(callCost, smsCost);
     // settingsInstance.UpdateAlerts(warningValue, criticalValue);
     // settingsInstance.totalAlert();
-
     costs = {
         call: callCost,
         sms: smsCost,
@@ -45,5 +43,5 @@ app.post('/settings', function(req, res){
 let PORT = process.env.PORT || 3010;
 
 app.listen(PORT, function(){
-    console.log('App starting port', PORT);
+    console.log('App starting on port', PORT);
 });
