@@ -7,7 +7,7 @@ let bodyParser = require('body-parser');
 let settingsInstance = Settings();
 let costs = 0;
 let costsTotal = 0;
-const exphbs  = require('express-handlebars');
+const exphbs = require('express-handlebars');
 
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
