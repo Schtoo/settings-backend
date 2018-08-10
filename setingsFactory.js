@@ -1,32 +1,43 @@
 module.exports = function() {
   var callCost = 0;
   var smsCost = 0;
-  var callValue = 0;
-  var smsValue = 0;
+  var callTotal = 0;
+  var smsTotal = 0;
   var warningValue = 0;
   var criticalValue = 0;
   var totals = 0;
 
-  function WhichType(checkedBill) {
+  function WhichType (checkedBill) {
     if (totals > criticalValue) {
       return;
     }
     if (checkedBill === 'call') {
-      callValue += callCost;
+      callTotal += callCost;
+      return callTotal;
     }
     if (checkedBill === 'sms') {
-      smsValue += smsCost;
+      smsTotal += smsCost;
+      return smsTotal;
     }
   }
 
-  function UpdateValues(call, sms) {
+  function UpdateCalls (call) {
     callCost = parseFloat(call);
-    smsCost = parseFloat(sms);
+    return callCost;
   }
 
-  function UpdateAlerts(warning, danger) {
+  function UpdatingSms (sms) {
+    smsCost = parseFloat(sms);
+    return smsCost;
+  }
+
+  function UpdateWarning (warning) {
     warningValue = parseFloat(warning);
+    return warningValue;
+  }
+  function UpdateCritical (danger) {
     criticalValue = parseFloat(danger);
+    return criticalValue;
   }
 
   function totalAlert() {
@@ -38,15 +49,15 @@ module.exports = function() {
   }
 
   function Calls() {
-    return callValue.toFixed(2);
+    return callTotal.toFixed(2);
   }
 
   function Sms() {
-    return smsValue.toFixed(2);
+    return smsTotal.toFixed(2);
   }
 
   function BothEqual() {
-    totals = callValue + smsValue;
+    totals = callTotal + smsTotal;
     return totals.toFixed(2);
   }
 
@@ -62,8 +73,10 @@ module.exports = function() {
     Calls,
     Sms,
     BothEqual,
-    UpdateValues,
-    UpdateAlerts,
+    UpdateCalls,
+    UpdatingSms,
+    UpdateCritical,
+    UpdateWarning,
     totalAlert,
     screenBehaviour,
     screenAlert

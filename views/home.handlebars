@@ -1,7 +1,7 @@
 <div class='container'>
   <div class="row">
     <div class="six columns">
-    <form action="/settings" method="post">
+    <form action="/action" method="post">
       <h5>Bill type</h5>
       <label class="">
         <input type="radio" name="billItemTypeWithSettings" class="billItemTypeWithSettings" value="call">
@@ -11,7 +11,7 @@
         <input type="radio" name="billItemTypeWithSettings" class="billItemTypeWithSettings" value="sms">
         <span class="label-body">SMS</span>
       </label>
-      <button class="button-primary" type="button" name="button">Add</button>
+      <button class="button-primary" type="submit" >Add</button>
     </form>
     <h5>Totals</h5>
     <table>
@@ -20,7 +20,7 @@
           <a href="/actions/calls">Call total</a>
         </td>
         <td>R
-          <span class="callTotalSettings">0.00</span>
+          <span class="callTotalSettings">{{costsTotal.calls}}</span>
         </td>
       </tr>
       <tr>
@@ -28,7 +28,7 @@
           <a href="/actions/sms">SMS total</a>
         </td>
         <td>R
-          <span class="smsTotalSettings">0.00</span>
+          <span class="smsTotalSettings">{{costsTotal.text}}</span>
         </td>
       </tr>
       <tr>
@@ -36,7 +36,7 @@
           <a href="/actions">Total</a>
         </td>
         <td> R
-          <span class="totalSettings">0.00</span>
+          <span class="totalSettings">{{costsTotal.total}}</span>
         </td>
       </tr>
     </table>
