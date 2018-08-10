@@ -30,6 +30,7 @@ app.post('/settings', function(req, res){
         warning: warningValue,
         critical: criticalValue
     };
+    console.log(costs);
     // you never send any data in the factory function..
     // you have the values but you do nothing with them...
     
