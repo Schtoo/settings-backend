@@ -23,7 +23,6 @@ app.get('/', function(req, res){
 });
 
 app.post('/settings', function(req, res){
- // console.log(req.body);
   const {callCost, smsCost, warningValue, criticalValue} = req.body;
     costs = {
         call: callCost,
@@ -38,7 +37,6 @@ app.post('/settings', function(req, res){
         costs,
     });
 });
-
 app.post('/action', function(req, res){
     console.log(req.body);
     let item = req.body.billItemTypeWithSettings;
@@ -52,15 +50,7 @@ app.post('/action', function(req, res){
     }
     console.log(costsTotal);  
 
-    let updatedCosts = {
-        callCost: settingsInstance.UpdateCalls(),
-        smsCost: settingsInstance.UpdatingSms(),
-        warningValue: settingsInstance.UpdateWarning(),
-        criticalValue: settingsInstance.UpdateCritical()
-    }
-
     res.render('home', {
-        updatedCosts,
         costsTotal
     });
 });
@@ -80,3 +70,12 @@ app.listen(PORT, function(){
     //     warningColor: settingsInstance.UpdateWarning(warning),
     //     criticalColor: settingsInstance.UpdateCritical(critical)
     // }
+
+     // let updatedCosts = {
+    //     callCost: settingsInstance.UpdateCalls(),
+    //     smsCost: settingsInstance.UpdatingSms(),
+    //     warningValue: settingsInstance.UpdateWarning(),
+    //     criticalValue: settingsInstance.UpdateCritical()
+    // }
+
+    // updatedCosts,
