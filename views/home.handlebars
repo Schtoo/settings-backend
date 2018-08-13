@@ -20,7 +20,7 @@
           <a href="/actions/calls">Call total</a>
         </td>
         <td>R
-          <span class="callTotalSettings">{{costsTotal.calls}}</span>
+          <span class="callTotalSettings">{{costsTotal.callCost}}</span>
         </td>
       </tr>
       <tr>
@@ -28,7 +28,7 @@
           <a href="/actions/sms">SMS total</a>
         </td>
         <td>R
-          <span class="smsTotalSettings">{{costsTotal.text}}</span>
+          <span class="smsTotalSettings">{{costsTotal.smsCost}}</span>
         </td>
       </tr>
       <tr>
@@ -44,13 +44,13 @@
     <form class="" action="/settings" method="post">
       <h5>Settings</h5>
       <label>Call cost</label>
-      <input type="number" name="callCost" placeholder="callCost" value="{{costs.call}}"></input>
+      <input type="text" name="callCost" placeholder="callCost" value="{{costs.call}}"></input>
       <label>SMS cost</label>
-      <input type="number" name="smsCost" placeholder="smsCost" value="{{costs.sms}}"></input>
+      <input type="text" name="smsCost" placeholder="smsCost" value="{{costs.sms}}"></input>
       <label>Warning level</label>
-      <input type="number" name="warningValue" placeholder="warning" value="{{costs.warning}}"></input>
+      <input type="text" name="warningValue" placeholder="warning" value="{{costs.warning}}"></input>
       <label>Critical level</label> 
-      <input type="number" name="criticalValue" placeholder="critical" value="{{costs.critical}}"></input>
+      <input type="text" name="criticalValue" placeholder="critical" value="{{costs.critical}}"></input>
       <button class="button-primary updateSettings" type="submit" name="button">Update settings</button>
     </form>
   </div>

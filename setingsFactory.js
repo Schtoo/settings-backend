@@ -21,6 +21,8 @@ module.exports = function() {
     }
   }
 
+  // These set values
+
   function UpdateCalls (call) {
     callCost = parseFloat(call);
     return callCost;
@@ -37,6 +39,21 @@ module.exports = function() {
   }
   function UpdateCritical (danger) {
     criticalValue = parseFloat(danger);
+    return criticalValue;
+  }
+  
+  // These Get Values
+
+  function getCallValue(){
+    return callCost;
+  }
+  function getSmsValue(){
+    return smsCost;
+  }
+  function getWarningValue(){
+    return warningValue;
+  }
+  function getCriticalValue(){
     return criticalValue;
   }
 
@@ -79,6 +96,10 @@ module.exports = function() {
     UpdateWarning,
     totalAlert,
     screenBehaviour,
-    screenAlert
+    screenAlert,
+    getCallValue,
+    getSmsValue,
+    getWarningValue,
+    getCriticalValue
   }
 }
