@@ -6,6 +6,7 @@ module.exports = function() {
   var warningValue = 0;
   var criticalValue = 0;
   var totals = 0;
+  let billRecords = [];
 
   function WhichType (checkedBill) {
     if (totals > criticalValue) {
@@ -65,6 +66,20 @@ module.exports = function() {
     }
   }
 
+  function records (type) {
+    let bill = {
+      price: callCost,
+      time: new Date(),
+      billType: type
+    }
+
+    if (type === 'call'){
+      bill.price
+    } else if (type === 'sms'){
+      bill.time
+    }
+  }
+  //These are all the totals
   function Calls() {
     return callTotal.toFixed(2);
   }
@@ -95,6 +110,7 @@ module.exports = function() {
     UpdateCritical,
     UpdateWarning,
     totalAlert,
+    records,
     screenBehaviour,
     screenAlert,
     getCallValue,

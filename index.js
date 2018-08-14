@@ -17,12 +17,12 @@ app.use(bodyParser.json());
 
 
 app.get('/', function(req, res){
-    
+    //This is how I send the data to my factory
     costs = {
         call:settingsInstance.getCallValue(),
         sms: settingsInstance.getSmsValue(),
         warning: settingsInstance.getWarningValue(),
-        critical: settingsInstance.getCriticalValue() //This is how I send the data to my factory
+        critical: settingsInstance.getCriticalValue() 
     };
     costsTotal = {
         callCost: settingsInstance.Calls(),
@@ -46,16 +46,13 @@ app.post('/settings', function(req, res){
         total: settingsInstance.BothEqual(),
         screen: settingsInstance.totalAlert()
     };
-    
+    //This is how I send the data to my factoryu
     costs = {
         call:settingsInstance.UpdateCalls(callCost),
         sms: settingsInstance.UpdatingSms(smsCost),
         warning: settingsInstance.UpdateWarning(warningValue),
-        critical: settingsInstance.UpdateCritical(criticalValue) //This is how I send the data to my factory
+        critical: settingsInstance.UpdateCritical(criticalValue) 
     };
-  
-    // you never send any data in the factory function..
-    // you have the values but you do nothing with them...
     
     res.render('home', {
         costs,
