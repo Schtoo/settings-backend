@@ -66,19 +66,19 @@ module.exports = function() {
     }
   }
 
-  function records (type) {
-    let bill = {
-      price: callCost,
-      time: new Date(),
-      billType: type
-    }
+  // function records (type) {
+  //   let bill = {
+  //     price: callCost,
+  //     time: new Date(),
+  //     billType: type
+  //   }
 
-    if (type === 'call'){
-      bill.price
-    } else if (type === 'sms'){
-      bill.time
-    }
-  }
+  //   if (type === 'call'){
+  //     bill.price
+  //   } else if (type === 'sms'){
+  //     bill.time
+  //   }
+  // }
   //These are all the totals
   function Calls() {
     return callTotal.toFixed(2);
